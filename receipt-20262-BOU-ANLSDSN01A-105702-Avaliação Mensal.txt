@@ -1,8 +1,0 @@
-Seus envios foram feitos com êxito!successful!
-Curso: 20262-BOU-ANLSDSN01A-105702, BOU-20262-ADSMPB-N-Implementação e Manipulação de Sistema em Linguagem C
-Avaliação: Avaliação Mensal
-
-Data de envio: 24/09/26 21:44 (BRT)
-Tamanho do envio: 10,5 KB
-Remetente: Gustavo Felipe dos Reis
-Número de confirmação: deb1368f42114756b392117e308344ac
