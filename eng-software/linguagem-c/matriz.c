@@ -1,0 +1,28 @@
+// Define uma matriz 3x3, utilizando array bidimenssional.
+
+#include <stdio.h>
+#define LINE 3
+#define COLUMN 3
+
+int main(){
+    int matrix[LINE][COLUMN];
+
+    // Preenchendo a matriz com o valor do usuario
+    printf("Digite os elementos da matriz %dx%d:\n", LINE, COLUMN);
+    for(int i = 0; i < LINE; i++){
+        for(int j = 0; j < COLUMN; j++){
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    // Exibindo a matriz
+    printf("Matriz inserida: \n");
+    for(int i = 0; i < LINE; i++){
+        for(int j = 0; j < COLUMN; j++){
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,35 @@
+// Utilizando repetição controlada por sentinela,
+// calcule a média de notas inseridas pelo usuario.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int k, nota, total;
+    float media;
+
+    total = 0;
+    k = 0;
+
+    printf("Digite uma nota (-1 para encerrar):\n");
+    scanf("%d", &nota);
+
+    while(nota != -1)
+    {
+        total += nota;
+        k++;
+
+        printf("Digite uma nota (-1 para encerrar):\n");
+        scanf("%d", &nota);
+    }
+
+    if(k != 0)
+    {
+        media = (float) total / k;
+        printf("A media eh: %.2f\n", media);
+    }else
+        printf("Nenhum valor inserido.");
+
+    return 0;
+}
