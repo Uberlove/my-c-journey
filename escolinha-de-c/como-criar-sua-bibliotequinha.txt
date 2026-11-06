@@ -1,0 +1,139 @@
+COMO CRIAR SUA BIBLIOTECA PARTICULAR(MAIS FACIL DO QUE PARECE).
+
+A linguagem C nos permite criar nossa própria biblioteca. Nela, podemos colocar nossas funções, estruturas etc., o que torna mais prática e fácil a sua utilização em outros projetos. Criar a sua própria biblioteca não é uma das tarefas mais difíceis. De fato, é bastante simples. Bibliotecas não são muito diferentes dos arquivos de código-fonte.
+
+Uma biblioteca é como o seu arquivo de código-fonte principal, com a diferença de que ele não possui a função main(). Isso ocorre porque o seu programa não vai começar na biblioteca.
+
+Antes de criar nossa biblioteca, vamos imaginar um programa que contenha um conjunto de funções para operações aritméticas.
+
+Exemplo:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int soma(int a, int b){ return a + b;}
+int subtracao(int a, int b){ return a - b;}
+int produto(int a, int b){ return a * b;}
+int divisao(int a, int b){ return a / b;}
+
+int main(){
+	int on = 0;
+	int x,y,z;
+	char ch;
+
+	do{
+		printf("Valor x: ");
+		scanf("%d", &x);
+		printf("Escolha uma operacao matematica (+ - * /): ");
+		scanf(" %c", &ch);
+		printf("Valor y: ");
+		scanf("%d", &y);
+
+		switch(ch){
+		case '+':
+			printf("%d + %d = %d\n", x, y, z = soma(x,y));
+			break;
+		case '-':
+			printf("%d - %d = %d\n", x, y, z = subtracao(x,y));
+			break;
+		case '*':
+			printf("%d * %d = %d\n", x, y, z = produto(x,y));
+			break;
+		case '/':
+			printf("%d / %d = %d\n", x, y, z = divisao(x,y));
+			break;
+		default:
+			printf("ERROR");
+		}//end switch
+		printf("finalizar?(1-sim, 0-nao)");
+		scanf("%d", &on);
+	}while(on == 0);//end do
+
+	return 0;
+}//end main
+
+PARA CRIAR UMA BIBLIOTECA PRECISAMOS DE UM ARQUIVO HEADER E UM ARQUIVO .C.
+
+Vamos chamar nossa biblioteca de calculadora, logo temos calculadora.h e calculadora.c.
+
+Nosso arquivo calculadora.h vai receber as bibliotecas necessárias e todos os protótipos das funções, como não precisamos de bibliotecas extras, basta por os protótipos.
+
+Nome do arquivo: calculadora.h
+
+int soma(int a, int b);
+int subtracao(int a, int b);
+int produto(int a, int b);
+int divisao(int a, int b);
+
+Agora precisa desenvolver as funções dentro do nosso arquivo calculadora.c, com um detalhe obrigatório, incluir o arquivo.h entre aspas, "calculadora.h".
+
+Nome do arquivo: calculadora.c
+
+#include "calculadora.h"
+
+int soma(int a, int b){ return a + b;}
+int subtracao(int a, int b){ return a - b;}
+int produto(int a, int b){ return a * b;}
+int divisao(int a, int b){ return a / b;}
+
+Agora só usar chamar ele no seu arquivo main.c e ver a mágica.
+
+Nome do arquivo: main.c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "calculadora.h" //--- CHAMA NOSSAS FUNCOES PROGRAMADAS ---
+
+int main(){
+	int on = 0;
+	int x,y,z;
+	char ch;
+
+	do{
+		printf("Valor x: ");
+		scanf("%d", &x);
+		printf("Escolha uma operacao matematica (+ - * /): ");
+		scanf(" %c", &ch);
+		printf("Valor y: ");
+		scanf("%d", &y);
+
+		switch(ch){
+		case '+':
+			printf("%d + %d = %d\n", x, y, z = soma(x,y));
+			break;
+		case '-':
+			printf("%d - %d = %d\n", x, y, z = subtracao(x,y));
+			break;
+		case '*':
+			printf("%d * %d = %d\n", x, y, z = produto(x,y));
+			break;
+		case '/':
+			printf("%d / %d = %d\n", x, y, z = divisao(x,y));
+			break;
+		default:
+			printf("ERROR");
+		}//end switch
+		printf("finalizar?(1-sim, 0-nao)");
+		scanf("%d", &on);
+	}while(on == 0);//end do
+
+	return 0;
+}//end main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
